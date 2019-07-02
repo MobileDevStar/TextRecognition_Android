@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "340255163066",
+    "firebase_url": "https://textrecognition-bf06c.firebaseio.com",
+    "project_id": "textrecognition-bf06c",
+    "storage_bucket": "textrecognition-bf06c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:340255163066:android:b9e89525b87ef3e9",
+        "android_client_info": {
+          "package_name": "com.itdevstar.textrecognition"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "340255163066-q4po4dcujnmcrn29asfm7lulq67jt4mu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDU4nlTHey_AuivQvOogNTvvK70kcz9qhE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "340255163066-q4po4dcujnmcrn29asfm7lulq67jt4mu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
