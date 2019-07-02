@@ -31,11 +31,18 @@ public class VisionImage {
     private static final String TAG = "MLKIT";
     private static final String MY_CAMERA_ID = CAMERA_BACK;
 
-    private void imageFromBitmap(Bitmap bitmap) {
+    public FirebaseVisionImage imageFromBitmap(Bitmap bitmap) {
+        // [START image_from_bitmap]
+        FirebaseVisionImage image = FirebaseVisionImage.fromBitmap(bitmap);
+        return image;
+        // [END image_from_bitmap]
+    }
+
+    /*private void imageFromBitmap(Bitmap bitmap) {
         // [START image_from_bitmap]
         FirebaseVisionImage image = FirebaseVisionImage.fromBitmap(bitmap);
         // [END image_from_bitmap]
-    }
+    }*/
 
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     private void imageFromMediaImage(Image mediaImage, int rotation) {

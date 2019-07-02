@@ -2,9 +2,13 @@ package com.itdevstar.textrecognition;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Point;
 import android.graphics.Rect;
 import android.os.Bundle;
+import android.util.Log;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -30,6 +34,16 @@ public class TextRecognitionActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_text);
+
+        Bitmap bm = BitmapFactory.decodeResource(getResources(), R.raw.card);
+        VisionImage vImg = new VisionImage();
+
+        FirebaseVisionImage image = vImg.imageFromBitmap(bm);
+
+        if (image != null) {
+            recognizeText(image);
+        }
     }
 
     private void recognizeText(FirebaseVisionImage image) {
@@ -53,10 +67,26 @@ public class TextRecognitionActivity extends AppCompatActivity {
                                     Point[] cornerPoints = block.getCornerPoints();
                                     String text = block.getText();
 
+                                    Log.e("Text_Block", text);
                                     for (FirebaseVisionText.Line line: block.getLines()) {
                                         // ...
+                                        String lineText = line.getText();
+                                        Float lineConfidence = line.getConfidence();
+                                        List<RecognizedLanguage> lineLanguages = line.getRecognizedLanguages();
+                                        Point[] lineCornerPoints = line.getCornerPoints();
+                                        Rect lineFrame = line.getBoundingBox();
+
+                                        Log.e("Text_Line", lineText);
+
                                         for (FirebaseVisionText.Element element: line.getElements()) {
                                             // ...
+                                            String elementText = element.getText();
+                                            Float elementConfidence = element.getConfidence();
+                                            List<RecognizedLanguage> elementLanguages = element.getRecognizedLanguages();
+                                            Point[] elementCornerPoints = element.getCornerPoints();
+                                            Rect elementFrame = element.getBoundingBox();
+
+                                            Log.e("Text_Element", elementText);
                                         }
                                     }
                                 }
